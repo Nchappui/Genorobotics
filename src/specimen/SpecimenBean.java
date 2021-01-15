@@ -27,17 +27,17 @@ public class SpecimenBean {
 		Pathogen
 	}
 	private ReproductionTypes reproduction;
-	private int collectionMethodID;
-	private int taxonomicMethodID;
+	private String collectionMethodName;
+	private String taxonomicMethodName;
 	private String taxonomicTimestamp;
 	private String collectionTimestamp;
 	//Full taxonomy in the format: Domain; Kingdom; Phylum; Class; Order; Family; Genus; Species.
-	private String[] taxonomy = new String[7];
+	private String[] taxonomy = new String[8];
 	//Description of the part of the world where the specimen was collected in the format: Continent/Ocean; Country; State/Province; Region; Sector.
-	private String[] collectionArea = new String[5];
-	private int collectionElevation;
-	private Double collectionGPSX;
-	private Double collectionGPSY;
+	private String[] collectionArea = new String[6];
+	private String collectionElevation;
+	private String collectionGPSX;
+	private String collectionGPSY;
 	
 	public String getExtraInfos() {
 		return extraInfos;
@@ -114,21 +114,6 @@ public class SpecimenBean {
 		this.reproduction = reproduction;
 	}
 	
-	public int getCollectionMethodID() {
-		return collectionMethodID;
-	}
-	
-	public void setCollectionMethodID(int collectionMethodID) {
-		this.collectionMethodID = collectionMethodID;
-	}
-	
-	public int getTaxonomicMethodID() {
-		return taxonomicMethodID;
-	}
-	public void setTaxonomicMethodID(int taxonomicMethodID) {
-		this.taxonomicMethodID = taxonomicMethodID;
-	}
-	
 	public String getTaxonomicTimestamp() {
 		return taxonomicTimestamp;
 	}
@@ -160,32 +145,44 @@ public class SpecimenBean {
 		this.collectionArea = collectionArea;
 	}
 	
-	public int getCollectionElevation() {
+	public String getCollectionElevation() {
 		return collectionElevation;
 	}
 	
-	public void setCollectionElevation(int collectionElevation) {
+	public void setCollectionElevation(String collectionElevation) {
 		this.collectionElevation = collectionElevation;
 	}
 	
-	public Double getCollectionGPSX() {
+	public String getCollectionGPSX() {
 		return collectionGPSX;
 	}
 	
-	public void setCollectionGPSX(Double collectionGPSX) {
+	public void setCollectionGPSX(String collectionGPSX) {
 		this.collectionGPSX = collectionGPSX;
 	}
 	
-	public Double getCollectionGPSY() {
+	public String getCollectionGPSY() {
 		return collectionGPSY;
 	}
 	
-	public void setCollectionGPSY(Double collectionGPSY) {
+	public void setCollectionGPSY(String collectionGPSY) {
 		this.collectionGPSY = collectionGPSY;
 	}
-	
-	
-	
-	
+
+	public String getCollectionMethodName() {
+		return collectionMethodName;
+	}
+
+	public void setCollectionMethodName(String collectionMethodName) {
+		this.collectionMethodName = collectionMethodName;
+	}
+
+	public String getTaxonomicMethodName() {
+		return taxonomicMethodName;
+	}
+
+	public void setTaxonomicMethodName(String taxonomicMethodName) {
+		this.taxonomicMethodName = taxonomicMethodName;
+	}
 	
 }
