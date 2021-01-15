@@ -20,23 +20,7 @@ public class SpecimenServlet extends HttpServlet {
 	public void init() {
 		specimenDao = new SpecimenDao();
 	}
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SpecimenServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
+   
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -95,7 +79,6 @@ public class SpecimenServlet extends HttpServlet {
 		String specimenElevation = request.getParameter("specimenElevation");
 		String specimenGPSX = request.getParameter("specimenGPSX");
 		String specimenGPSY = request.getParameter("specimenGPSY");
-		
 		SpecimenBean specimenBean = new SpecimenBean();
 		specimenBean.setExtraInfos(specimenExtraInfos);
 		specimenBean.setMeasurementType(specimenMeasurementType);
@@ -111,11 +94,11 @@ public class SpecimenServlet extends HttpServlet {
 		specimenBean.setTaxonomicMethodName(specimenTaxonomicMethodName);
 		specimenBean.setTaxonomicTimestamp(specimenTaxonomicTimestamp);
 		specimenBean.setCollectionTimestamp(specimenCollectionTimestamp);
-		String[] taxonomy = {specimenTaxonomyDomain,specimenTaxonomyKingdom,specimenTaxonomyPhylum,specimenTaxonomyClass,
-				specimenTaxonomyOrder,specimenTaxonomyFamily,specimenTaxonomyGenus,specimenTaxonomySpecies};
-		specimenBean.setTaxonomy(taxonomy);
-		String[] collection = {specimenCollectionAreaContinent, specimenCollectionAreaCountry, specimenCollectionAreaState, 
-				specimenCollectionAreaRegion, specimenCollectionAreaSector};
+		String taxonomy = specimenTaxonomyDomain+"; "+specimenTaxonomyKingdom+"; "+specimenTaxonomyPhylum +"; "+ specimenTaxonomyClass +"; "+
+		specimenTaxonomyOrder +"; "+ specimenTaxonomyFamily +"; "+ specimenTaxonomyGenus +"; "+ specimenTaxonomySpecies;
+		specimenBean.setCollectionTaxonomy(taxonomy);
+		String collection = specimenCollectionAreaContinent+"; "+ specimenCollectionAreaCountry+"; "+ specimenCollectionAreaState+"; "+
+				specimenCollectionAreaRegion+"; "+ specimenCollectionAreaSector;
 		specimenBean.setCollectionArea(collection);
 		specimenBean.setCollectionElevation(specimenElevation);
 		specimenBean.setCollectionGPSX(specimenGPSX);

@@ -10,9 +10,10 @@ public class SpecimenBean {
 	private String imageCopyright;
 	private String host;
 	public enum Sexes{
-		male,
-		female,
-		Hermaphrodite
+		Male,
+		Female,
+		Hermaphrodite,
+		None
 	}
 	private Sexes sex = null;
 	public enum LifeStages{
@@ -32,9 +33,9 @@ public class SpecimenBean {
 	private String taxonomicTimestamp;
 	private String collectionTimestamp;
 	//Full taxonomy in the format: Domain; Kingdom; Phylum; Class; Order; Family; Genus; Species.
-	private String[] taxonomy = new String[8];
+	private String collectionTaxonomy;
 	//Description of the part of the world where the specimen was collected in the format: Continent/Ocean; Country; State/Province; Region; Sector.
-	private String[] collectionArea = new String[6];
+	private String collectionArea;
 	private String collectionElevation;
 	private String collectionGPSX;
 	private String collectionGPSY;
@@ -129,21 +130,6 @@ public class SpecimenBean {
 		this.collectionTimestamp = collectionTimestamp;
 	}
 	
-	public String[] getTaxonomy() {
-		return taxonomy;
-	}
-	
-	public void setTaxonomy(String[] taxonomy) {
-		this.taxonomy = taxonomy;
-	}
-	
-	public String[] getCollectionArea() {
-		return collectionArea;
-	}
-	
-	public void setCollectionArea(String[] collectionArea) {
-		this.collectionArea = collectionArea;
-	}
 	
 	public String getCollectionElevation() {
 		return collectionElevation;
@@ -183,6 +169,22 @@ public class SpecimenBean {
 
 	public void setTaxonomicMethodName(String taxonomicMethodName) {
 		this.taxonomicMethodName = taxonomicMethodName;
+	}
+
+	public String getCollectionTaxonomy() {
+		return collectionTaxonomy;
+	}
+
+	public void setCollectionTaxonomy(String collectionTaxonomy) {
+		this.collectionTaxonomy = collectionTaxonomy;
+	}
+
+	public String getCollectionArea() {
+		return collectionArea;
+	}
+
+	public void setCollectionArea(String collectionArea) {
+		this.collectionArea = collectionArea;
 	}
 	
 }

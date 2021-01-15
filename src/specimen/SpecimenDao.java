@@ -19,7 +19,7 @@ public class SpecimenDao {
                 .getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "test");
 
             // Step 2:Create a statement using connection object
-        		
+        	/*	
             PreparedStatement preparedStatement = connection
             .prepareStatement("insert into specimen \r\n"
             		+ "(Specimen_storing_ID, Extra_infos, Measurement_type, Image, Image_timestamp, Image_description, \r\n "
@@ -32,33 +32,65 @@ public class SpecimenDao {
             preparedStatement.setString(2, specimenBean.getExtraInfos());
             preparedStatement.setString(3, specimenBean.getMeasurementType());
             preparedStatement.setString(4, specimenBean.getImage());
-            preparedStatement.setString(5, specimenBean.getImageDescription());
-            preparedStatement.setString(6, specimenBean.getImageCopyright());
-            preparedStatement.setString(7, specimenBean.getHost());
-            preparedStatement.setString(8, specimenBean.getSex());
-            preparedStatement.setString(9, specimenBean.getLifeStage());
-            preparedStatement.setString(10, specimenBean.getReproduction());
-            preparedStatement.setString(11, specimenBean.getCollectionMethodName());
-            preparedStatement.setString(12, specimenBean.getTaxonomicMethodName());
-            preparedStatement.setString(13, specimenBean.getTaxonomicTimestamp());
-            preparedStatement.setString(14, specimenBean.getCollectionTimestamp());
-            preparedStatement.setString(15, specimenBean.getTaxonomy()[0]);
-            preparedStatement.setString(16, specimenBean.getTaxonomy()[1]);
-            preparedStatement.setString(17, specimenBean.getTaxonomy()[2]);
-            preparedStatement.setString(18, specimenBean.getTaxonomy()[3]);
-            preparedStatement.setString(19, specimenBean.getTaxonomy()[4]);
-            preparedStatement.setString(20, specimenBean.getTaxonomy()[5]);
-            preparedStatement.setString(21, specimenBean.getTaxonomy()[6]);
-            preparedStatement.setString(22, specimenBean.getTaxonomy()[7]);
-            preparedStatement.setString(23, specimenBean.getCollectionArea()[0]);
-            preparedStatement.setString(24, specimenBean.getCollectionArea()[1]);
-            preparedStatement.setString(25, specimenBean.getCollectionArea()[2]);
-            preparedStatement.setString(26, specimenBean.getCollectionArea()[3]);
-            preparedStatement.setString(27, specimenBean.getCollectionArea()[4]);
-            preparedStatement.setString(28, specimenBean.getCollectionElevation());
-            preparedStatement.setString(29, specimenBean.getCollectionGPSX());
-            preparedStatement.setString(30, specimenBean.getCollectionGPSY());
+            preparedStatement.setString(5, specimenBean.getImageTimestamp());
+            preparedStatement.setString(6, specimenBean.getImageDescription());
+            preparedStatement.setString(7, specimenBean.getImageCopyright());
+            preparedStatement.setString(8, specimenBean.getHost());
+            preparedStatement.setString(9, specimenBean.getSex());
+            preparedStatement.setString(10, specimenBean.getLifeStage());
+            preparedStatement.setString(11, specimenBean.getReproduction());
+            preparedStatement.setString(12, specimenBean.getCollectionMethodName());
+            preparedStatement.setString(13, specimenBean.getTaxonomicMethodName());
+            preparedStatement.setString(14, specimenBean.getTaxonomicTimestamp());
+            preparedStatement.setString(15, specimenBean.getCollectionTimestamp());
+            preparedStatement.setString(16, specimenBean.getTaxonomy()[0]);
+            preparedStatement.setString(17, specimenBean.getTaxonomy()[1]);
+            preparedStatement.setString(18, specimenBean.getTaxonomy()[2]);
+            preparedStatement.setString(19, specimenBean.getTaxonomy()[3]);
+            preparedStatement.setString(20, specimenBean.getTaxonomy()[4]);
+            preparedStatement.setString(21, specimenBean.getTaxonomy()[5]);
+            preparedStatement.setString(22, specimenBean.getTaxonomy()[6]);
+            preparedStatement.setString(23, specimenBean.getTaxonomy()[7]);
+            preparedStatement.setString(24, specimenBean.getCollectionArea()[0]);
+            preparedStatement.setString(25, specimenBean.getCollectionArea()[1]);
+            preparedStatement.setString(26, specimenBean.getCollectionArea()[2]);
+            preparedStatement.setString(27, specimenBean.getCollectionArea()[3]);
+            preparedStatement.setString(28, specimenBean.getCollectionArea()[4]);
+            preparedStatement.setString(29, specimenBean.getCollectionElevation());
+            preparedStatement.setString(30, specimenBean.getCollectionGPSX());
+            preparedStatement.setString(31, specimenBean.getCollectionGPSY());
+            */
             
+        		PreparedStatement preparedStatement = connection
+        	            .prepareStatement("insert into specimen \r\n"
+        	            		+ "(Specimen_storing_ID, Extra_infos, Measurement_type, Image, Image_timestamp, Image_description, \r\n "
+        	            		+ "Image_copyright, Host, Sex, Life_stage, Reproduction, Collection_method_name,\r\n"
+        	            		+ "Taxonomic_method_name, Taxonomic_timestamp, Collection_timestamp, Taxonomy, \r\n"
+        	            		+ " Collection_area, Collection_elevation, Collection_GPS)\r\n"
+        	            		+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
+        	            		+ " ?, ?, ?, ?, POINT(?,?))")) {
+        	        	preparedStatement.setString(1, rnum);
+        	            preparedStatement.setString(2, specimenBean.getExtraInfos());
+        	            preparedStatement.setString(3, specimenBean.getMeasurementType());
+        	            preparedStatement.setString(4, specimenBean.getImage());
+        	            preparedStatement.setString(5, specimenBean.getImageTimestamp());
+        	            preparedStatement.setString(6, specimenBean.getImageDescription());
+        	            preparedStatement.setString(7, specimenBean.getImageCopyright());
+        	            preparedStatement.setString(8, specimenBean.getHost());
+        	            preparedStatement.setString(9, specimenBean.getSex());
+        	            preparedStatement.setString(10, specimenBean.getLifeStage());
+        	            preparedStatement.setString(11, specimenBean.getReproduction());
+        	            preparedStatement.setString(12, specimenBean.getCollectionMethodName());
+        	            preparedStatement.setString(13, specimenBean.getTaxonomicMethodName());
+        	            preparedStatement.setString(14, specimenBean.getTaxonomicTimestamp());
+        	            preparedStatement.setString(15, specimenBean.getCollectionTimestamp());
+        	            preparedStatement.setString(16, specimenBean.getCollectionTaxonomy());
+        	            preparedStatement.setString(17, specimenBean.getCollectionArea());
+        	            preparedStatement.setString(18, specimenBean.getCollectionElevation());
+        	            preparedStatement.setString(19, specimenBean.getCollectionGPSX());
+        	            preparedStatement.setString(20, specimenBean.getCollectionGPSY());
+        		
+        		
             System.out.println(preparedStatement);
             result = preparedStatement.executeUpdate();
 
