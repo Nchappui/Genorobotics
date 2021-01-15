@@ -79,6 +79,7 @@ public class SpecimenServlet extends HttpServlet {
 		String specimenElevation = request.getParameter("specimenElevation");
 		String specimenGPSX = request.getParameter("specimenGPSX");
 		String specimenGPSY = request.getParameter("specimenGPSY");
+		
 		SpecimenBean specimenBean = new SpecimenBean();
 		specimenBean.setExtraInfos(specimenExtraInfos);
 		specimenBean.setMeasurementType(specimenMeasurementType);

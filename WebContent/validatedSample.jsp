@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Sample successfully added</title>
 </head>
 <body>
-
+<div align="center">
+  <h1>You have successfully added a sample!</h1>
+ </div>
 </body>
 </html>

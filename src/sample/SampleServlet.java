@@ -10,32 +10,76 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SampleServlet
  */
-@WebServlet("/SampleServlet")
+@WebServlet("/addsample")
 public class SampleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SampleServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	private SampleDao sampleDao;
+	
+	public void init() {
+		sampleDao = new SampleDao();
 	}
-
+   
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		  String storingLocation = request.getParameter("storingLocation");
+		  String sampleSequencer = request.getParameter("sampleSequencer");
+		  String sampleStocker = request.getParameter("sampleStocker");
+		  String sampleUploader = request.getParameter("sampleUploader");
+		  String sampleIdentifier = request.getParameter("sampleIdentifier");
+		  String sampleCollector = request.getParameter("sampleCollector");
+		  String sampleExtractor = request.getParameter("sampleExtractor");
+		  String sequencingMethodName = request.getParameter("sequencingMethodName");
+		  String amplificationMethodName = request.getParameter("amplificationMethodName");
+		  String extractionMethodName = request.getParameter("extractionMethodName");
+		  String specimenStoringID = request.getParameter("specimenStoringID");
+		  String sequencingTimestamp = request.getParameter("sequencingTimestamp");
+		  String amplificationTimestamp = request.getParameter("amplificationTimestamp");
+		  String extractionTimestamp = request.getParameter("extractionTimestamp");
+		  String primerCodes = request.getParameter("primerCodes");
+		  String readDirection = request.getParameter("readDirection");
+		  String sequenceLength = request.getParameter("sequenceLength");
+		  String marker = request.getParameter("marker");
+		  String primerDescription = request.getParameter("primerDescription");
+		  String sequenceData = request.getParameter("sequenceData");
+		  String baseCallingFile = request.getParameter("baseCallingFile");
+	
+		  SampleBean sampleBean = new SampleBean();
+		  sampleBean.setStoringLocation(storingLocation);
+		  sampleBean.setSampleSequencer(sampleSequencer);
+		  sampleBean.setSampleStocker(sampleStocker);
+		  sampleBean.setSampleUploader(sampleUploader);
+		  sampleBean.setSampleIdentifier(sampleIdentifier);
+		  sampleBean.setSampleCollector(sampleCollector);
+		  sampleBean.setSampleExtractor(sampleExtractor);
+		  sampleBean.setSequencingMethodName(sequencingMethodName);
+		  sampleBean.setAmplificationMethodName(amplificationMethodName);
+		  sampleBean.setExtractionMethodName(extractionMethodName);
+		  sampleBean.setSpecimenStoringID(specimenStoringID);
+		  sampleBean.setSequencingTimestamp(sequencingTimestamp);
+		  sampleBean.setAmplificationTimestamp(amplificationTimestamp);
+		  sampleBean.setExtractionTimestamp(extractionTimestamp);
+		  sampleBean.setPrimerCodes(primerCodes);
+		  sampleBean.setReadDirection(readDirection);
+		  sampleBean.setSequenceLength(sequenceLength);
+		  sampleBean.setMarker(marker);
+		  sampleBean.setPrimerDescription(primerDescription);
+		  sampleBean.setSequenceData(sequenceData);
+		  sampleBean.setBaseCallingFile(baseCallingFile);
+		  
+
+			try {
+				if(sampleDao.registerSample(sampleBean)!=0) {
+					response.sendRedirect("validatedSample.jsp");
+				}else {
+					response.sendRedirect("addSample.jsp");
+				}
+				
+				
+			}catch(ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 	}
 
 }
