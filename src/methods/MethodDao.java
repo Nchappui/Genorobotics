@@ -5,33 +5,30 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.concurrent.ThreadLocalRandom;
-
 public class MethodDao {
 
 	public int registerMethod(MethodBean methodBean) throws ClassNotFoundException {
-        Integer randomNum = ThreadLocalRandom.current().nextInt(0, 1000 + 1);
-        String rnum = randomNum.toString();
+      
         String methodType= methodBean.getMethodType();
        	switch(methodType)
        	{
        	case "Amplification":
-       		return addMethodtoAmplificationTable(rnum, methodType, methodBean);
+       		return addMethodtoAmplificationTable(methodType, methodBean);
        	case "Extraction":
-       		return addMethodtoExtractionTable(rnum, methodType, methodBean);
+       		return addMethodtoExtractionTable(methodType, methodBean);
        	case "Collection":
-       		return addMethodtoCollectionTable(rnum, methodType, methodBean);
+       		return addMethodtoCollectionTable(methodType, methodBean);
        	case "Sequencing":
-       		return addMethodtoSequencingTable(rnum, methodType, methodBean);
+       		return addMethodtoSequencingTable(methodType, methodBean);
        	case "Taxonomic":
-       		return addMethodtoTaxonomicTable(rnum, methodType, methodBean);
+       		return addMethodtoTaxonomicTable(methodType, methodBean);
        		
        	}
        	return 0;
 
     }
 
-	private int addMethodtoAmplificationTable(String rnum, String methodType, MethodBean methodBean) throws ClassNotFoundException {
+	private int addMethodtoAmplificationTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
 		Class.forName("com.mysql.jdbc.Driver");
 
@@ -41,14 +38,13 @@ public class MethodDao {
             // Step 2:Create a statement using connection object
         	
             PreparedStatement preparedStatement = connection
-            .prepareStatement("insert into methods (Method_ID, Method_description, Method_type) values (? , ? , ?);insert into `amplification methods` (Amplification_method_ID) values (?) ")) {
-        	preparedStatement.setString(1, rnum);
+            .prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `amplification methods` (Amplification_method_name) values (?) ")) {
+        	preparedStatement.setString(1, methodBean.getMethodName());
             preparedStatement.setString(2, methodBean.getMethodDescription());
             preparedStatement.setString(3, methodType);
-            preparedStatement.setString(4, rnum);
+            preparedStatement.setString(4, methodBean.getMethodName());
 
             System.out.println(preparedStatement);
-            //addToSecondTable(rnum, methodBean.getMethodType());
             result = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -59,7 +55,7 @@ public class MethodDao {
         return result;	
 	}
 	
-	private int addMethodtoExtractionTable(String rnum, String methodType, MethodBean methodBean) throws ClassNotFoundException {
+	private int addMethodtoExtractionTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
 		Class.forName("com.mysql.jdbc.Driver");
 
@@ -69,14 +65,13 @@ public class MethodDao {
             // Step 2:Create a statement using connection object
         	
             PreparedStatement preparedStatement = connection
-            .prepareStatement("insert into methods (Method_ID, Method_description, Method_type) values (? , ? , ?);insert into `extraction methods` (Extraction_method_ID) values (?) ")) {
-        	preparedStatement.setString(1, rnum);
+            .prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `extraction methods` (Extraction_method_name) values (?) ")) {
+        	preparedStatement.setString(1, methodBean.getMethodName());
             preparedStatement.setString(2, methodBean.getMethodDescription());
             preparedStatement.setString(3, methodType);
-            preparedStatement.setString(4, rnum);
+            preparedStatement.setString(4, methodBean.getMethodName());
 
             System.out.println(preparedStatement);
-            //addToSecondTable(rnum, methodBean.getMethodType());
             result = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -87,7 +82,7 @@ public class MethodDao {
         return result;	
 	}
 	
-	private int addMethodtoSequencingTable(String rnum, String methodType, MethodBean methodBean) throws ClassNotFoundException {
+	private int addMethodtoSequencingTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
 		Class.forName("com.mysql.jdbc.Driver");
 
@@ -97,14 +92,13 @@ public class MethodDao {
             // Step 2:Create a statement using connection object
         	
             PreparedStatement preparedStatement = connection
-            .prepareStatement("insert into methods (Method_ID, Method_description, Method_type) values (? , ? , ?);insert into `sequencing methods` (Sequencing_method_ID) values (?) ")) {
-        	preparedStatement.setString(1, rnum);
+            .prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `sequencing methods` (Sequencing_method_name) values (?) ")) {
+        	preparedStatement.setString(1, methodBean.getMethodName());
             preparedStatement.setString(2, methodBean.getMethodDescription());
             preparedStatement.setString(3, methodType);
-            preparedStatement.setString(4, rnum);
+            preparedStatement.setString(4, methodBean.getMethodName());
 
             System.out.println(preparedStatement);
-            //addToSecondTable(rnum, methodBean.getMethodType());
             result = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -115,7 +109,7 @@ public class MethodDao {
         return result;	
 	}
 	
-	private int addMethodtoTaxonomicTable(String rnum, String methodType, MethodBean methodBean) throws ClassNotFoundException {
+	private int addMethodtoTaxonomicTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
 		Class.forName("com.mysql.jdbc.Driver");
 
@@ -125,14 +119,13 @@ public class MethodDao {
             // Step 2:Create a statement using connection object
         	
             PreparedStatement preparedStatement = connection
-            .prepareStatement("insert into methods (Method_ID, Method_description, Method_type) values (? , ? , ?);insert into `taxonomic methods` (Taxonomic_method_ID) values (?) ")) {
-        	preparedStatement.setString(1, rnum);
+            .prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `taxonomic methods` (Taxonomic_method_name) values (?) ")) {
+        	preparedStatement.setString(1, methodBean.getMethodName());
             preparedStatement.setString(2, methodBean.getMethodDescription());
             preparedStatement.setString(3, methodType);
-            preparedStatement.setString(4, rnum);
+            preparedStatement.setString(4, methodBean.getMethodName());
 
             System.out.println(preparedStatement);
-            //addToSecondTable(rnum, methodBean.getMethodType());
             result = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -143,7 +136,7 @@ public class MethodDao {
         return result;	
 	}
 	
-	private int addMethodtoCollectionTable(String rnum, String methodType, MethodBean methodBean) throws ClassNotFoundException {
+	private int addMethodtoCollectionTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
 		Class.forName("com.mysql.jdbc.Driver");
 
@@ -153,14 +146,13 @@ public class MethodDao {
             // Step 2:Create a statement using connection object
         	
             PreparedStatement preparedStatement = connection
-            .prepareStatement("insert into methods (Method_ID, Method_description, Method_type) values (? , ? , ?);insert into `collection methods` (Collection_method_ID) values (?) ")) {
-        	preparedStatement.setString(1, rnum);
+            .prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `collection methods` (Collection_method_name) values (?) ")) {
+        	preparedStatement.setString(1, methodBean.getMethodName());
             preparedStatement.setString(2, methodBean.getMethodDescription());
             preparedStatement.setString(3, methodType);
-            preparedStatement.setString(4, rnum);
+            preparedStatement.setString(4, methodBean.getMethodName());
 
             System.out.println(preparedStatement);
-            //addToSecondTable(rnum, methodBean.getMethodType());
             result = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

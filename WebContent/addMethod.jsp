@@ -11,6 +11,10 @@
   <h1>New Method to add</h1>
   <form action="<%=request.getContextPath()%>/addMethod" method="post">
    <table style="with: 100%">
+   <tr>
+     <td>Method Name</td>
+     <td><input type="text" name="methodName" /></td>
+    </tr>
     <tr>
      <td>Method Description</td>
      <td><input type="text" name="methodDescription" /></td>

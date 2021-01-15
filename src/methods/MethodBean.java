@@ -2,6 +2,7 @@ package methods;
 
 public class MethodBean {
 
+	private String methodName;
 	private String methodDescription;
 	public enum Types{
 		Amplification,
@@ -26,6 +27,14 @@ public class MethodBean {
 	
 	public void setMethodDescription(String methodDescription) {
 		this.methodDescription = methodDescription;
+	}
+
+	public String getMethodName() {
+		return methodName;
+	}
+
+	public void setMethodName(String methodName) {
+		this.methodName = methodName;
 	}
 	
 
