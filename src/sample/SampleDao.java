@@ -13,7 +13,7 @@ public class SampleDao {
         Integer randomNum = ThreadLocalRandom.current().nextInt(0, 1000 + 1);
         String rnum = randomNum.toString();
         int result = 0;
-
+        
         Class.forName("com.mysql.jdbc.Driver");
 
         try (Connection connection = DriverManager
@@ -34,19 +34,20 @@ public class SampleDao {
         	            preparedStatement.setString(6, sampleBean.getSampleIdentifier());
         	            preparedStatement.setString(7, sampleBean.getSampleCollector());
         	            preparedStatement.setString(8, sampleBean.getSampleExtractor());
-        	            preparedStatement.setString(9, sampleBean.getAmplificationMethodName());
-        	            preparedStatement.setString(10, sampleBean.getSequencingMethodName());
-        	            preparedStatement.setString(11, sampleBean.getSpecimenStoringID());
-        	            preparedStatement.setString(12, sampleBean.getSequencingTimestamp());
-        	            preparedStatement.setString(13, sampleBean.getAmplificationTimestamp());
-        	            preparedStatement.setString(14, sampleBean.getExtractionTimestamp());
-        	            preparedStatement.setString(15, sampleBean.getPrimerCodes());
-        	            preparedStatement.setString(16, sampleBean.getReadDirection());
-        	            preparedStatement.setString(17, sampleBean.getSequenceLength());
-        	            preparedStatement.setString(18, sampleBean.getMarker());
-        	            preparedStatement.setString(19, sampleBean.getPrimerDescription());
-        	            preparedStatement.setString(20, sampleBean.getSequenceData());
-        	            preparedStatement.setString(21, sampleBean.getBaseCallingFile());
+        	            preparedStatement.setString(9, sampleBean.getSequencingMethodName());
+        	            preparedStatement.setString(10, sampleBean.getAmplificationMethodName());
+        	            preparedStatement.setString(11, sampleBean.getExtractionMethodName());
+        	            preparedStatement.setString(12, sampleBean.getSpecimenStoringID());
+        	            preparedStatement.setString(13, sampleBean.getSequencingTimestamp());
+        	            preparedStatement.setString(14, sampleBean.getAmplificationTimestamp());
+        	            preparedStatement.setString(15, sampleBean.getExtractionTimestamp());
+        	            preparedStatement.setString(16, sampleBean.getPrimerCodes());
+        	            preparedStatement.setString(17, sampleBean.getReadDirection());
+        	            preparedStatement.setString(18, sampleBean.getSequenceLength());
+        	            preparedStatement.setString(19, sampleBean.getMarker());
+        	            preparedStatement.setString(20, sampleBean.getPrimerDescription());
+        	            preparedStatement.setString(21, sampleBean.getSequenceData());
+        	            preparedStatement.setString(22, sampleBean.getBaseCallingFile());
         		
         		
             System.out.println(preparedStatement);
