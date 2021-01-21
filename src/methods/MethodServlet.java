@@ -46,14 +46,7 @@ public class MethodServlet extends HttpServlet {
 		String methodName = request.getParameter("methodName");
 		String methodDescription = request.getParameter("methodDescription");
 		String methodTypeString = request.getParameter("methodType");
-		Types methodType = null;
-		
-		try {
-			methodType = Types.valueOf(methodTypeString);
-		}catch (Exception e) {
-			response.sendRedirect("addMethod.jsp");
-			return;
-		}
+		Types methodType = Types.valueOf(methodTypeString);
 		MethodBean methodBean = new MethodBean();
 		methodBean.setMethodName(methodName);
 		methodBean.setMethodDescription(methodDescription);

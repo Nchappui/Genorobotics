@@ -22,7 +22,6 @@ public class MethodDao {
        		return addMethodtoSequencingTable(methodType, methodBean);
        	case "Taxonomic":
        		return addMethodtoTaxonomicTable(methodType, methodBean);
-       		
        	}
        	return 0;
 

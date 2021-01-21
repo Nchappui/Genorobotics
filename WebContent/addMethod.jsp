@@ -13,15 +13,24 @@
    <table style="with: 100%">
    <tr>
      <td>Method Name</td>
-     <td><input type="text" name="methodName" /></td>
+     <td><input type="text" name="methodName" required></td>
     </tr>
     <tr>
      <td>Method Description</td>
-     <td><input type="text" name="methodDescription" /></td>
+     <td><input type="text" name="methodDescription" required maxlength=999/></td>
     </tr>
     <tr>
-     <td>Method Type (Amplification / Extraction / Sequencing / Taxonomic / Collection)</td>
-     <td><input type="text" name="methodType" /></td>
+     <td>Method Type</td>
+     	<td><input type="radio" id="method1" name="methodType" value="Amplification" required>
+  		<label for="method1">Amplification</label>
+  		<input type="radio" id="method2" name="methodType" value="Extraction">
+  		<label for="method2">Extraction</label>
+  		<input type="radio" id="method3" name="methodType" value="Sequencing">
+  		<label for="method3">Sequencing</label>
+  		<input type="radio" id="method4" name="methodType" value="Taxonomic">
+  		<label for="method4">Taxonomic</label>
+  		<input type="radio" id="method5" name="methodType" value="Collection">
+  		<label for="method5">Collection</label></td>
     </tr>
 
    </table>
