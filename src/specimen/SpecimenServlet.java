@@ -16,11 +16,11 @@ import specimen.SpecimenBean.*;
 public class SpecimenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private SpecimenDao specimenDao;
-	
+
 	public void init() {
 		specimenDao = new SpecimenDao();
 	}
-   
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -58,7 +58,7 @@ public class SpecimenServlet extends HttpServlet {
 		String specimenElevation = request.getParameter("specimenElevation");
 		String specimenGPSX = request.getParameter("specimenGPSX");
 		String specimenGPSY = request.getParameter("specimenGPSY");
-		
+
 		SpecimenBean specimenBean = new SpecimenBean();
 		specimenBean.setExtraInfos(specimenExtraInfos);
 		specimenBean.setMeasurementType(specimenMeasurementType);
@@ -75,7 +75,7 @@ public class SpecimenServlet extends HttpServlet {
 		specimenBean.setTaxonomicTimestamp(specimenTaxonomicTimestamp);
 		specimenBean.setCollectionTimestamp(specimenCollectionTimestamp);
 		String taxonomy = specimenTaxonomyDomain+"; "+specimenTaxonomyKingdom+"; "+specimenTaxonomyPhylum +"; "+ specimenTaxonomyClass +"; "+
-		specimenTaxonomyOrder +"; "+ specimenTaxonomyFamily +"; "+ specimenTaxonomyGenus +"; "+ specimenTaxonomySpecies;
+				specimenTaxonomyOrder +"; "+ specimenTaxonomyFamily +"; "+ specimenTaxonomyGenus +"; "+ specimenTaxonomySpecies;
 		specimenBean.setCollectionTaxonomy(taxonomy);
 		String collection = specimenCollectionAreaContinent+"; "+ specimenCollectionAreaCountry+"; "+ specimenCollectionAreaState+"; "+
 				specimenCollectionAreaRegion+"; "+ specimenCollectionAreaSector;
@@ -83,19 +83,19 @@ public class SpecimenServlet extends HttpServlet {
 		specimenBean.setCollectionElevation(specimenElevation);
 		specimenBean.setCollectionGPSX(specimenGPSX);
 		specimenBean.setCollectionGPSY(specimenGPSY);
-		
+
 		try {
 			if(specimenDao.registerSpecimen(specimenBean)!=0) {
 				response.sendRedirect("validatedSpecimen.jsp");
 			}else {
 				response.sendRedirect("addSpecimen.jsp");
 			}
-			
-			
+
+
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

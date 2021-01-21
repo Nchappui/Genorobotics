@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 public class PersonsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PersonDao personDao;
-	
+
 	public void init() {
 		personDao = new PersonDao();
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -28,7 +28,7 @@ public class PersonsServlet extends HttpServlet {
 		PersonBean personBean = new PersonBean();
 		personBean.setEmail(email);
 		personBean.setFullname(fullname);
-		
+
 		try {
 			if(personDao.registerPerson(personBean)!=0) {
 				response.sendRedirect("validatedperson.jsp");

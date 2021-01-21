@@ -14,35 +14,19 @@ import methods.MethodBean.Types;
  */
 @WebServlet("/addMethod")
 public class MethodServlet extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
 	private MethodDao methodDao;
-	
+
 	public void init() {
 		methodDao = new MethodDao();
-	}
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MethodServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		String methodName = request.getParameter("methodName");
 		String methodDescription = request.getParameter("methodDescription");
 		String methodTypeString = request.getParameter("methodType");
@@ -57,8 +41,8 @@ public class MethodServlet extends HttpServlet {
 			}else {
 				response.sendRedirect("addMethod.jsp");
 			}
-			
-			
+
+
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
