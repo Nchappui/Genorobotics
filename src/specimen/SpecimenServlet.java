@@ -33,32 +33,11 @@ public class SpecimenServlet extends HttpServlet {
 		String specimenImageCopyright = request.getParameter("specimenImageCopyright");
 		String specimenHost = request.getParameter("specimenHost");
 		String specimenSexString = request.getParameter("specimenSex");
-		Sexes specimenSex = null;
-		try {
-			specimenSex = Sexes.valueOf(specimenSexString);
-			
-		}catch (Exception e){
-			response.sendRedirect("addSpecimen.jsp");
-			return;
-		}
+		Sexes specimenSex = Sexes.valueOf(specimenSexString);
 		String specimenLifeStageString = request.getParameter("specimenLifeStage");
-		LifeStages specimenLifeStage= null;
-		try {
-			specimenLifeStage = LifeStages.valueOf(specimenLifeStageString);
-			
-		}catch (Exception e){
-			response.sendRedirect("addSpecimen.jsp");
-			return;
-		}
+		LifeStages specimenLifeStage= LifeStages.valueOf(specimenLifeStageString);
 		String specimenReproductionString = request.getParameter("specimenReproduction");
-		ReproductionTypes specimenReproduction = null;
-		try {
-			specimenReproduction = ReproductionTypes.valueOf(specimenReproductionString);
-			
-		}catch (Exception e){
-			response.sendRedirect("addSpecimen.jsp");
-			return;
-		}
+		ReproductionTypes specimenReproduction = ReproductionTypes.valueOf(specimenReproductionString);
 		String specimenCollectionMethodName = request.getParameter("specimenCollectionMethodName");
 		String specimenTaxonomicMethodName = request.getParameter("specimenTaxonomicMethodName");
 		String specimenTaxonomicTimestamp = request.getParameter("specimenTaxonomicTimestamp");
