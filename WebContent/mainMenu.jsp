@@ -25,7 +25,7 @@
      				<td><input type="BUTTON" VALUE="Add a new person" onclick="window.location='addperson.jsp'"/></td>
     			</tr>
     			<tr>
-     				<td><input type="BUTTON" VALUE="See tables" /></td>
+     				<td><input type="BUTTON" VALUE="See tables" onclick="window.location='seeTables.jsp'"/></td>
     			</tr>
       			</table>
       			
