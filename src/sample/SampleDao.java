@@ -21,10 +21,10 @@ public class SampleDao {
         		PreparedStatement preparedStatement = connection
         	            .prepareStatement("insert into sample \r\n"
         	            		+ "(Sample_Id, Storing_location, Sample_sequencer, Sample_stocker, Sample_uploader, Sample_identifier, \r\n "
-        	            		+ "Sample_collector, Sample_extractor, Sequencing_method_name, Amplification_method_name, Extraction_method_name, Specimen_storing_ID,\r\n"
+        	            		+ "Sample_collector, Sample_extractor, Sample_amplifier, Sequencing_method_name, Amplification_method_name, Extraction_method_name, Specimen_storing_ID,\r\n"
         	            		+ "Sequencing_timestamp, Amplification_timestamp, Extraction_timestamp, Primer_codes, \r\n"
         	            		+ " Read_direction, Sequence_length, Marker, Primer_description, Sequence_data, Base_calling_file)\r\n"
-        	            		+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
+        	            		+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
         	            		+ " ?, ?, ?, ?, ?, ?, ?, ?)")) {
         	        	preparedStatement.setString(1, rnum);
         	            preparedStatement.setString(2, sampleBean.getStoringLocation());
@@ -34,20 +34,21 @@ public class SampleDao {
         	            preparedStatement.setString(6, sampleBean.getSampleIdentifier());
         	            preparedStatement.setString(7, sampleBean.getSampleCollector());
         	            preparedStatement.setString(8, sampleBean.getSampleExtractor());
-        	            preparedStatement.setString(9, sampleBean.getSequencingMethodName());
-        	            preparedStatement.setString(10, sampleBean.getAmplificationMethodName());
-        	            preparedStatement.setString(11, sampleBean.getExtractionMethodName());
-        	            preparedStatement.setString(12, sampleBean.getSpecimenStoringID());
-        	            preparedStatement.setString(13, sampleBean.getSequencingTimestamp());
-        	            preparedStatement.setString(14, sampleBean.getAmplificationTimestamp());
-        	            preparedStatement.setString(15, sampleBean.getExtractionTimestamp());
-        	            preparedStatement.setString(16, sampleBean.getPrimerCodes());
-        	            preparedStatement.setString(17, sampleBean.getReadDirection());
-        	            preparedStatement.setString(18, sampleBean.getSequenceLength());
-        	            preparedStatement.setString(19, sampleBean.getMarker());
-        	            preparedStatement.setString(20, sampleBean.getPrimerDescription());
-        	            preparedStatement.setString(21, sampleBean.getSequenceData());
-        	            preparedStatement.setString(22, sampleBean.getBaseCallingFile());
+        	            preparedStatement.setString(9, sampleBean.getSampleAmplifier());
+        	            preparedStatement.setString(10, sampleBean.getSequencingMethodName());
+        	            preparedStatement.setString(11, sampleBean.getAmplificationMethodName());
+        	            preparedStatement.setString(12, sampleBean.getExtractionMethodName());
+        	            preparedStatement.setString(13, sampleBean.getSpecimenStoringID());
+        	            preparedStatement.setString(14, sampleBean.getSequencingTimestamp());
+        	            preparedStatement.setString(15, sampleBean.getAmplificationTimestamp());
+        	            preparedStatement.setString(16, sampleBean.getExtractionTimestamp());
+        	            preparedStatement.setString(17, sampleBean.getPrimerCodes());
+        	            preparedStatement.setString(18, sampleBean.getReadDirection());
+        	            preparedStatement.setString(19, sampleBean.getSequenceLength());
+        	            preparedStatement.setString(20, sampleBean.getMarker());
+        	            preparedStatement.setString(21, sampleBean.getPrimerDescription());
+        	            preparedStatement.setString(22, sampleBean.getSequenceData());
+        	            preparedStatement.setString(23, sampleBean.getBaseCallingFile());
         		
         		
             System.out.println(preparedStatement);

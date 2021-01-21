@@ -30,6 +30,7 @@ public class SampleServlet extends HttpServlet {
 		  String sampleIdentifier = request.getParameter("sampleIdentifier");
 		  String sampleCollector = request.getParameter("sampleCollector");
 		  String sampleExtractor = request.getParameter("sampleExtractor");
+		  String sampleAmplifier = request.getParameter("sampleAmplifier");
 		  String sequencingMethodName = request.getParameter("sequencingMethodName");
 		  String amplificationMethodName = request.getParameter("amplificationMethodName");
 		  String extractionMethodName = request.getParameter("extractionMethodName");
@@ -53,6 +54,7 @@ public class SampleServlet extends HttpServlet {
 		  sampleBean.setSampleIdentifier(sampleIdentifier);
 		  sampleBean.setSampleCollector(sampleCollector);
 		  sampleBean.setSampleExtractor(sampleExtractor);
+		  sampleBean.setSampleAmplifier(sampleAmplifier);
 		  sampleBean.setSequencingMethodName(sequencingMethodName);
 		  sampleBean.setAmplificationMethodName(amplificationMethodName);
 		  sampleBean.setExtractionMethodName(extractionMethodName);

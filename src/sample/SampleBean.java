@@ -9,6 +9,7 @@ public class SampleBean {
 	private String sampleIdentifier;
 	private String sampleCollector;
 	private String sampleExtractor;
+	private String sampleAmplifier;
 	private String sequencingMethodName;
 	private String amplificationMethodName;
 	private String extractionMethodName;
@@ -190,5 +191,13 @@ public class SampleBean {
 	
 	public void setBaseCallingFile(String baseCallingFile) {
 		this.baseCallingFile = baseCallingFile;
+	}
+
+	public String getSampleAmplifier() {
+		return sampleAmplifier;
+	}
+
+	public void setSampleAmplifier(String sampleAmplifier) {
+		this.sampleAmplifier = sampleAmplifier;
 	}
 }

@@ -19,6 +19,7 @@
 	<tr> <td>Sample identifier</td> <td><input type="text" name="sampleIdentifier" /></td> </tr>
 	<tr> <td>Sample collector</td> <td><input type="text" name="sampleCollector" /></td> </tr>
 	<tr> <td>Sample extractor</td> <td><input type="text" name="sampleExtractor" /></td> </tr>
+	<tr> <td>Sample amplifier</td> <td><input type="text" name="sampleAmplifier" /></td> </tr>
 	<tr> <td>Sequencing method name (must be valid)</td> <td><input type="text" name="sequencingMethodName" /></td> </tr>
 	<tr> <td>Amplification method name (must be valid)</td> <td><input type="text" name="amplificationMethodName" /></td> </tr>
 	<tr> <td>Extraction method name (must be valid)</td> <td><input type="text" name="extractionMethodName" /></td> </tr>
