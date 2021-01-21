@@ -17,54 +17,54 @@
 					<td><input type="text" name="storingLocation" required></td>
 				</tr>
 				<tr>
-					<td>Sample sequencer</td>
+					<td>Sample sequencer email (must be in the database)</td>
 					<td><input type="email" id="sampleSequencer"
 						name="sampleSequencer" required></td>
 				</tr>
 				<tr>
-					<td>Sample stocker</td>
+					<td>Sample stocker email (must be in the database)</td>
 					<td><input type="email" id="sampleStocker"
 						name="sampleStocker" required></td>
 				</tr>
 				<tr>
-					<td>Sample uploader</td>
+					<td>Sample uploader email (must be in the database)</td>
 					<td><input type="email" id="sampleUploader"
 						name="sampleUploader" required></td>
 				</tr>
 				<tr>
-					<td>Sample identifier</td>
+					<td>Sample identifier email (must be in the database)</td>
 					<td><input type="email" id="sampleIdentifier"
 						name="sampleIdentifier" required></td>
 				</tr>
 				<tr>
-					<td>Sample collector</td>
+					<td>Sample collector email (must be in the database)</td>
 					<td><input type="email" id="sampleCollector"
 						name="sampleCollector" required></td>
 				</tr>
 				<tr>
-					<td>Sample extractor</td>
+					<td>Sample extractor email (must be in the database)</td>
 					<td><input type="email" id="sampleExtractor"
 						name="sampleExtractor" required></td>
 				</tr>
 				<tr>
-					<td>Sample amplifier</td>
+					<td>Sample amplifier email (must be in the database)</td>
 					<td><input type="email" id="sampleAmplifier"
 						name="sampleAmplifier" required></td>
 				</tr>
 				<tr>
-					<td>Sequencing method name (must be valid)</td>
+					<td>Sequencing method name (must be in the database)</td>
 					<td><input type="text" name="sequencingMethodName" required></td>
 				</tr>
 				<tr>
-					<td>Amplification method name (must be valid)</td>
+					<td>Amplification method name (must be in the database)</td>
 					<td><input type="text" name="amplificationMethodName" required></td>
 				</tr>
 				<tr>
-					<td>Extraction method name (must be valid)</td>
+					<td>Extraction method name (must be in the database)</td>
 					<td><input type="text" name="extractionMethodName" required></td>
 				</tr>
 				<tr>
-					<td>Specimen storing ID (must be valid)</td>
+					<td>Specimen storing ID (must be in the database)</td>
 					<td><input type="number" name="specimenStoringID" required></td>
 				</tr>
 				<tr>
