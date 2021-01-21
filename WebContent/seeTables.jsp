@@ -14,6 +14,16 @@
 		</form>
 		<br>
 		<br>
+		<form action="<%=request.getContextPath()%>/seeSamples" method="post">
+			<input type="submit" value="Sample table" />
+		</form>
+		<br>
+		<br>
+		<form action="<%=request.getContextPath()%>/seeSpecimens" method="post">
+			<input type="submit" value="Specimen table" />
+		</form>
+		<br>
+		<br>
 		<form action="<%=request.getContextPath()%>/seePersons" method="post">
 			<input type="submit" value="Persons table" />
 		</form>
