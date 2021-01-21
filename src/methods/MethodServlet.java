@@ -42,6 +42,7 @@ public class MethodServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String methodName = request.getParameter("methodName");
 		String methodDescription = request.getParameter("methodDescription");
 		String methodTypeString = request.getParameter("methodType");
