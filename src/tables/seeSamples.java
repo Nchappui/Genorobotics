@@ -22,7 +22,7 @@ import sample.SampleBean;
 @WebServlet("/seeSamples")
 public class seeSamples extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected void processRequest(HttpServletRequest request, 
 			HttpServletResponse response) 
 					throws ServletException, IOException 
@@ -33,14 +33,14 @@ public class seeSamples extends HttpServlet {
 		ArrayList<SampleBean> std = new ArrayList<SampleBean>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			connection = DriverManager
-                .getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
+					.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM genorobotics.sample;");
 			result = ps.executeQuery();
 			while(result.next()) {
@@ -72,18 +72,18 @@ public class seeSamples extends HttpServlet {
 			}
 		}
 
-            // Step 2:Create a statement using connection object
-        	catch (Exception e) {
-            // process sql exception
-        	e.printStackTrace();
-        }
+		// Step 2:Create a statement using connection object
+		catch (Exception e) {
+			// process sql exception
+			e.printStackTrace();
+		}
 		request.setAttribute("samplesData", std);
 		RequestDispatcher rd = request.getRequestDispatcher("seeSamples.jsp");
 		rd.forward(request, response); 
-      
-		 
+
+
 	}
-    
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

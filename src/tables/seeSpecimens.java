@@ -25,7 +25,7 @@ import specimen.SpecimenBean.Sexes;
 @WebServlet("/seeSpecimens")
 public class seeSpecimens extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected void processRequest(HttpServletRequest request, 
 			HttpServletResponse response) 
 					throws ServletException, IOException 
@@ -36,14 +36,14 @@ public class seeSpecimens extends HttpServlet {
 		ArrayList<SpecimenBean> std = new ArrayList<SpecimenBean>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			connection = DriverManager
-                .getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
+					.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM genorobotics.specimen;");
 			result = ps.executeQuery();
 			while(result.next()) {
@@ -68,23 +68,23 @@ public class seeSpecimens extends HttpServlet {
 				specimen.setCollectionElevation(result.getString(18));
 				specimen.setCollectionGPSX(result.getString(19));
 				specimen.setCollectionGPSY(result.getString(19));
-			
+
 				std.add(specimen);
 			}
 		}
 
-            // Step 2:Create a statement using connection object
-        	catch (Exception e) {
-            // process sql exception
-        	e.printStackTrace();
-        }
+		// Step 2:Create a statement using connection object
+		catch (Exception e) {
+			// process sql exception
+			e.printStackTrace();
+		}
 		request.setAttribute("specimensData", std);
 		RequestDispatcher rd = request.getRequestDispatcher("seeSpecimens.jsp");
 		rd.forward(request, response); 
-      
-		 
+
+
 	}
-    
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

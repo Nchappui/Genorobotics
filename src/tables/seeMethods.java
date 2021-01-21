@@ -34,14 +34,14 @@ public class seeMethods extends HttpServlet {
 		ArrayList<MethodBean> std = new ArrayList<MethodBean>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			connection = DriverManager
-                .getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
+					.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM genorobotics.methods;");
 			result = ps.executeQuery();
 			while(result.next()) {
@@ -53,16 +53,16 @@ public class seeMethods extends HttpServlet {
 			}
 		}
 
-            // Step 2:Create a statement using connection object
-        	catch (Exception e) {
-            // process sql exception
-        	e.printStackTrace();
-        }
+		// Step 2:Create a statement using connection object
+		catch (Exception e) {
+			// process sql exception
+			e.printStackTrace();
+		}
 		request.setAttribute("methodsData", std);
 		RequestDispatcher rd = request.getRequestDispatcher("seeMethods.jsp");
 		rd.forward(request, response); 
-      
-		 
+
+
 	}
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
