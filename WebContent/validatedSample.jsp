@@ -9,6 +9,8 @@
 <body>
 <div align="center">
   <h1>You have successfully added a sample!</h1>
+  <input type="BUTTON" VALUE="Add a new Sample" onclick="window.location='addSample.jsp'"/>
+  <input type="BUTTON" VALUE="Back to main menu" onclick="window.location='mainMenu.jsp'"/>
  </div>
 </body>
 </html>

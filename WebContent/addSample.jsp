@@ -35,6 +35,7 @@
 	<tr> <td>Base calling file</td> <td><input type="text" name="baseCallingFile" /></td> </tr>
 
 </table>
+	<input type="BUTTON" VALUE="Back" onclick="window.location='mainMenu.jsp'"/>
    <input type="submit" value="Submit" />
   </form>
  </div>

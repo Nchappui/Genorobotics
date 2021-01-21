@@ -21,6 +21,7 @@
     </tr>
 
    </table>
+   <input type="BUTTON" VALUE="Back" onclick="window.location='mainMenu.jsp'"/>
    <input type="submit" value="Submit" />
   </form>
  </div>

@@ -9,6 +9,8 @@
 <body>
  <div align="center">
   <h1>You have successfully added a method!</h1>
+  <input type="BUTTON" VALUE="Add a new method" onclick="window.location='addMethod.jsp'"/>
+  <input type="BUTTON" VALUE="Back to main menu" onclick="window.location='mainMenu.jsp'"/>
  </div>
 </body>
 </html>
