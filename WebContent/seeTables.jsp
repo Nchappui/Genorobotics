@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<h1>Tables</h1>
+	<h1><img src="images/genorobotics.jpg" width="100" height="100">Tables</h1>
 	<form action="<%=request.getContextPath()%>/seeMethods" method="post">
 		<input type="submit" value="Methods table" />
 	</form>
