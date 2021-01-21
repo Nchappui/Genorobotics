@@ -8,25 +8,24 @@
     </HEAD>
 	<BODY>
         <div align="center">
-        	<h1>Genorobotics</h1>
-        	<form action="<%=request.getContextPath()%>/mainMenu" method="post">
-      			<table style="with: 100%">
+        	<h1>Genorobotics database</h1>
+        	<form>
+      			<table style="with: 200%">
       			
-      			<INPUT TYPE="HIDDEN" NAME="buttonName" >
       			<tr>
-     				<td><input type="BUTTON" VALUE="add a new method" onclick="window.location='addMethod.jsp'"/></td>
+     				<td><input type="BUTTON" VALUE="Add a new method" onclick="window.location='addMethod.jsp'"/></td>
     			</tr>
     			<tr>
-     				<td><input type="BUTTON" VALUE="add a new sample" onclick="window.location='addSample.jsp'"/></td>
+     				<td><input type="BUTTON" VALUE="Add a new sample" onclick="window.location='addSample.jsp'"/></td>
     			</tr>
     			<tr>
-     				<td><input type="BUTTON" VALUE="add a new specimen" onclick="window.location='addSpecimen.jsp'"/></td>
+     				<td><input type="BUTTON" VALUE="Add a new specimen" onclick="window.location='addSpecimen.jsp'"/></td>
     			</tr>
     			<tr>
-     				<td><input type="BUTTON" VALUE="add a new person" onclick="window.location='addperson.jsp'"/></td>
+     				<td><input type="BUTTON" VALUE="Add a new person" onclick="window.location='addperson.jsp'"/></td>
     			</tr>
     			<tr>
-     				<td><input type="BUTTON" VALUE="see tables" /></td>
+     				<td><input type="BUTTON" VALUE="See tables" /></td>
     			</tr>
       			</table>
       			

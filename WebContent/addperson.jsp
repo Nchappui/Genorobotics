@@ -13,11 +13,11 @@
    <table style="with: 100%">
     <tr>
      <td>Email</td>
-     <td><input type="text" name="email" /></td>
+     <td><input type="email" id="email" name="email"></td>
     </tr>
     <tr>
      <td>Full name</td>
-     <td><input type="text" name="fullname" /></td>
+     <td><input type="text" name="fullname" required></td>
     </tr>
 
    </table>
