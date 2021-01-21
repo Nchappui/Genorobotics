@@ -7,12 +7,13 @@
         <TITLE>Genorobotics</TITLE>
     </HEAD>
 	<BODY>
-        <div align="center">
+        
         	<h1>Genorobotics database</h1>
         	<form>
-      			<table style="with: 200%">
+      			<table style="with: 200%" border = 1 >
       			
       			<tr>
+      			
      				<td><input type="BUTTON" VALUE="Add a new method" onclick="window.location='addMethod.jsp'"/></td>
     			</tr>
     			<tr>
@@ -30,7 +31,7 @@
       			</table>
       			
       		</form>
- 		</div>
+ 		
  		
     </BODY>
 </HTML>

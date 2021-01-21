@@ -1,5 +1,12 @@
 package specimen;
 
+/**
+ * Structure for the specimen form
+ * 
+ * @author Nolan
+ *
+ */
+
 public class SpecimenBean {
 
 	private String specimenID;
@@ -33,14 +40,12 @@ public class SpecimenBean {
 	private String taxonomicMethodName;
 	private String taxonomicTimestamp;
 	private String collectionTimestamp;
-	//Full taxonomy in the format: Domain; Kingdom; Phylum; Class; Order; Family; Genus; Species.
 	private String collectionTaxonomy;
-	//Description of the part of the world where the specimen was collected in the format: Continent/Ocean; Country; State/Province; Region; Sector.
 	private String collectionArea;
 	private String collectionElevation;
 	private String collectionGPSX;
 	private String collectionGPSY;
-	
+
 	public String getSpecimenID() {
 		return specimenID;
 	}
@@ -48,35 +53,35 @@ public class SpecimenBean {
 	public void setSpecimenID(String specimenID) {
 		this.specimenID = specimenID;
 	}
-	
+
 	public String getExtraInfos() {
 		return extraInfos;
 	}
-	
+
 	public void setExtraInfos(String extraInfos) {
 		this.extraInfos = extraInfos;
 	}
-	
+
 	public String getMeasurementType() {
 		return measurementType;
 	}
-	
+
 	public void setMeasurementType(String measurementType) {
 		this.measurementType = measurementType;
 	}
-	
+
 	public String getImage() {
 		return image;
 	}
-	
+
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+
 	public String getImageTimestamp() {
 		return imageTimestamp;
 	}
-	
+
 	public void setImageTimestamp(String imageTimestamp) {
 		this.imageTimestamp = imageTimestamp;
 	}
@@ -89,27 +94,27 @@ public class SpecimenBean {
 	public String getImageCopyright() {
 		return imageCopyright;
 	}
-	
+
 	public void setImageCopyright(String imageCopyright) {
 		this.imageCopyright = imageCopyright;
 	}
-	
+
 	public String getHost() {
 		return host;
 	}
-	
+
 	public void setHost(String host) {
 		this.host = host;
 	}
-	
+
 	public String getSex() {
 		return sex.toString();
 	}
-	
+
 	public void setSex(Sexes sex) {
 		this.sex = sex;
 	}
-	
+
 	public String getLifeStage() {
 		return lifeStage.toString();
 	}
@@ -119,47 +124,47 @@ public class SpecimenBean {
 	public String getReproduction() {
 		return reproduction.toString();
 	}
-	
+
 	public void setReproduction(ReproductionTypes reproduction) {
 		this.reproduction = reproduction;
 	}
-	
+
 	public String getTaxonomicTimestamp() {
 		return taxonomicTimestamp;
 	}
-	
+
 	public void setTaxonomicTimestamp(String taxonomicTimestamp) {
 		this.taxonomicTimestamp = taxonomicTimestamp;
 	}
-	
+
 	public String getCollectionTimestamp() {
 		return collectionTimestamp;
 	}
 	public void setCollectionTimestamp(String collectionTimestamp) {
 		this.collectionTimestamp = collectionTimestamp;
 	}
-	
-	
+
+
 	public String getCollectionElevation() {
 		return collectionElevation;
 	}
-	
+
 	public void setCollectionElevation(String collectionElevation) {
 		this.collectionElevation = collectionElevation;
 	}
-	
+
 	public String getCollectionGPSX() {
 		return collectionGPSX;
 	}
-	
+
 	public void setCollectionGPSX(String collectionGPSX) {
 		this.collectionGPSX = collectionGPSX;
 	}
-	
+
 	public String getCollectionGPSY() {
 		return collectionGPSY;
 	}
-	
+
 	public void setCollectionGPSY(String collectionGPSY) {
 		this.collectionGPSY = collectionGPSY;
 	}
@@ -196,6 +201,6 @@ public class SpecimenBean {
 		this.collectionArea = collectionArea;
 	}
 
-	
-	
+
+
 }
