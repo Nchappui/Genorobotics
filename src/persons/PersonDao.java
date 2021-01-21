@@ -2,9 +2,10 @@ package persons;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import connection.ConnectionToMySQL;
 
 /**
  * Generates and the query and executes it
@@ -19,15 +20,13 @@ public class PersonDao {
 		int result = 0;
 
 
-		Class.forName("com.mysql.jdbc.Driver");
+		try {
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			Connection connection = connect.connectToDatabase();
+			// Step 2:Create a statement using connection object
 
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "test");
-
-				// Step 2:Create a statement using connection object
-
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("insert into person (Email, Fullname) values (? , ?)")) {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into person (Email, Fullname) values (? , ?)");
 			preparedStatement.setString(1, personBean.getEmail());
 			preparedStatement.setString(2, personBean.getFullname());
 

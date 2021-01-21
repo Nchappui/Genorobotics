@@ -2,7 +2,6 @@ package tables;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -14,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import connection.ConnectionToMySQL;
 import specimen.SpecimenBean;
 import specimen.SpecimenBean.LifeStages;
 import specimen.SpecimenBean.ReproductionTypes;
@@ -35,15 +35,8 @@ public class seeSpecimens extends HttpServlet {
 		Connection connection=null;
 		ArrayList<SpecimenBean> std = new ArrayList<SpecimenBean>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			connection = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			connection = connect.connectToDatabase();
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM genorobotics.specimen;");
 			result = ps.executeQuery();
 			while(result.next()) {

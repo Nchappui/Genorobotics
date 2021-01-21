@@ -1,10 +1,11 @@
 package sample;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.concurrent.ThreadLocalRandom;
+
+import connection.ConnectionToMySQL;
 
 /**
  * Generates and the query and executes it
@@ -20,18 +21,17 @@ public class SampleDao {
 		String rnum = randomNum.toString();
 		int result = 0;
 
-		Class.forName("com.mysql.jdbc.Driver");
-
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "test");
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("insert into sample \r\n"
-								+ "(Sample_Id, Storing_location, Sample_sequencer, Sample_stocker, Sample_uploader, Sample_identifier, \r\n "
-								+ "Sample_collector, Sample_extractor, Sample_amplifier, Sequencing_method_name, Amplification_method_name, Extraction_method_name, Specimen_storing_ID,\r\n"
-								+ "Sequencing_timestamp, Amplification_timestamp, Extraction_timestamp, Primer_codes, \r\n"
-								+ " Read_direction, Sequence_length, Marker, Primer_description, Sequence_data, Base_calling_file)\r\n"
-								+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
-								+ " ?, ?, ?, ?, ?, ?, ?, ?)")) {
+		try {
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			Connection connection = connect.connectToDatabase();
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into sample \r\n"
+							+ "(Sample_Id, Storing_location, Sample_sequencer, Sample_stocker, Sample_uploader, Sample_identifier, \r\n "
+							+ "Sample_collector, Sample_extractor, Sample_amplifier, Sequencing_method_name, Amplification_method_name, Extraction_method_name, Specimen_storing_ID,\r\n"
+							+ "Sequencing_timestamp, Amplification_timestamp, Extraction_timestamp, Primer_codes, \r\n"
+							+ " Read_direction, Sequence_length, Marker, Primer_description, Sequence_data, Base_calling_file)\r\n"
+							+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
+							+ " ?, ?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, rnum);
 			preparedStatement.setString(2, sampleBean.getStoringLocation());
 			preparedStatement.setString(3, sampleBean.getSampleSequencer());

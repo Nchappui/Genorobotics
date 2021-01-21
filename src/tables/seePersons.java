@@ -2,11 +2,11 @@ package tables;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import persons.PersonBean;
+import connection.ConnectionToMySQL;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,16 +31,11 @@ public class seePersons extends HttpServlet {
 		ResultSet result = null ;
 		Connection connection=null;
 		ArrayList<PersonBean> std = new ArrayList<PersonBean>();
+		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			connection = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			connection = connect.connectToDatabase();
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM genorobotics.person;");
 			result = ps.executeQuery();
 			while(result.next()) {

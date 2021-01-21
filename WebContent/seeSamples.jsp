@@ -73,6 +73,8 @@
 		<%}%>
 	</table>
 	<hr />
+	<input type="BUTTON" VALUE="Back"
+		onclick="window.location='seeTables.jsp'" />
 	<input type="BUTTON" VALUE="Back to main menu"
 		onclick="window.location='mainMenu.jsp'" />
 </body>

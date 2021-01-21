@@ -1,10 +1,11 @@
 package specimen;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.concurrent.ThreadLocalRandom;
+
+import connection.ConnectionToMySQL;
 
 /**
  * Generates and the query and executes it
@@ -20,19 +21,17 @@ public class SpecimenDao {
 		String rnum = randomNum.toString();
 		int result = 0;
 
-		Class.forName("com.mysql.jdbc.Driver");
-
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "test");
-
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("insert into specimen \r\n"
-								+ "(Specimen_storing_ID, Extra_infos, Measurement_type, Image, Image_timestamp, Image_description, \r\n "
-								+ "Image_copyright, Host, Sex, Life_stage, Reproduction, Collection_method_name,\r\n"
-								+ "Taxonomic_method_name, Taxonomic_timestamp, Collection_timestamp, Taxonomy, \r\n"
-								+ " Collection_area, Collection_elevation, Collection_GPS)\r\n"
-								+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
-								+ " ?, ?, ?, ?, POINT(?,?))")) {
+		try {
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			Connection connection = connect.connectToDatabase();
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into specimen \r\n"
+							+ "(Specimen_storing_ID, Extra_infos, Measurement_type, Image, Image_timestamp, Image_description, \r\n "
+							+ "Image_copyright, Host, Sex, Life_stage, Reproduction, Collection_method_name,\r\n"
+							+ "Taxonomic_method_name, Taxonomic_timestamp, Collection_timestamp, Taxonomy, \r\n"
+							+ " Collection_area, Collection_elevation, Collection_GPS)\r\n"
+							+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
+							+ " ?, ?, ?, ?, POINT(?,?))");
 			preparedStatement.setString(1, rnum);
 			preparedStatement.setString(2, specimenBean.getExtraInfos());
 			preparedStatement.setString(3, specimenBean.getMeasurementType());

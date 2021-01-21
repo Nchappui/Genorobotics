@@ -2,9 +2,10 @@ package methods;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import connection.ConnectionToMySQL;
 
 /**
  * Generates and the query and executes it
@@ -36,15 +37,12 @@ public class MethodDao {
 
 	private int addMethodtoAmplificationTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
-		Class.forName("com.mysql.jdbc.Driver");
+		try {
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			Connection connection = connect.connectToDatabase();
+			// Step 2:Create a statement using connection object
 
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
-
-				// Step 2:Create a statement using connection object
-
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `amplification methods` (Amplification_method_name) values (?) ")) {
+			PreparedStatement preparedStatement = connection.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `amplification methods` (Amplification_method_name) values (?) ");
 			preparedStatement.setString(1, methodBean.getMethodName());
 			preparedStatement.setString(2, methodBean.getMethodDescription());
 			preparedStatement.setString(3, methodType);
@@ -63,15 +61,13 @@ public class MethodDao {
 
 	private int addMethodtoExtractionTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
-		Class.forName("com.mysql.jdbc.Driver");
+		try {
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			Connection connection = connect.connectToDatabase();
+			// Step 2:Create a statement using connection object
 
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
-
-				// Step 2:Create a statement using connection object
-
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `extraction methods` (Extraction_method_name) values (?) ")) {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `extraction methods` (Extraction_method_name) values (?) ");
 			preparedStatement.setString(1, methodBean.getMethodName());
 			preparedStatement.setString(2, methodBean.getMethodDescription());
 			preparedStatement.setString(3, methodType);
@@ -90,15 +86,13 @@ public class MethodDao {
 
 	private int addMethodtoSequencingTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
-		Class.forName("com.mysql.jdbc.Driver");
+		try  {
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			Connection connection = connect.connectToDatabase();
+			// Step 2:Create a statement using connection object
 
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
-
-				// Step 2:Create a statement using connection object
-
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `sequencing methods` (Sequencing_method_name) values (?) ")) {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `sequencing methods` (Sequencing_method_name) values (?) ");
 			preparedStatement.setString(1, methodBean.getMethodName());
 			preparedStatement.setString(2, methodBean.getMethodDescription());
 			preparedStatement.setString(3, methodType);
@@ -117,15 +111,14 @@ public class MethodDao {
 
 	private int addMethodtoTaxonomicTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
-		Class.forName("com.mysql.jdbc.Driver");
 
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
+		try  {
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			Connection connection = connect.connectToDatabase();
+			// Step 2:Create a statement using connection object
 
-				// Step 2:Create a statement using connection object
-
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `taxonomic methods` (Taxonomic_method_name) values (?) ")) {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `taxonomic methods` (Taxonomic_method_name) values (?) ");
 			preparedStatement.setString(1, methodBean.getMethodName());
 			preparedStatement.setString(2, methodBean.getMethodDescription());
 			preparedStatement.setString(3, methodType);
@@ -144,15 +137,14 @@ public class MethodDao {
 
 	private int addMethodtoCollectionTable(String methodType, MethodBean methodBean) throws ClassNotFoundException {
 		int result = 0;
-		Class.forName("com.mysql.jdbc.Driver");
 
-		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/genorobotics?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true", "root", "test");
+		try  {
+			ConnectionToMySQL connect = new ConnectionToMySQL();
+			Connection connection = connect.connectToDatabase();
+			// Step 2:Create a statement using connection object
 
-				// Step 2:Create a statement using connection object
-
-				PreparedStatement preparedStatement = connection
-						.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `collection methods` (Collection_method_name) values (?) ")) {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into methods (Method_name, Method_description, Method_type) values (? , ? , ?);insert into `collection methods` (Collection_method_name) values (?) ");
 			preparedStatement.setString(1, methodBean.getMethodName());
 			preparedStatement.setString(2, methodBean.getMethodDescription());
 			preparedStatement.setString(3, methodType);
