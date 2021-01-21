@@ -23,7 +23,9 @@ public class seeTables extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public seeTables() {
+    	
         super();
+        System.out.println("went here in see tables1");
         // TODO Auto-generated constructor stub
     }
 
@@ -66,6 +68,7 @@ public class seeTables extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("went here in see tables");
 		doGet(request, response);
 	}
 
