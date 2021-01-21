@@ -2,6 +2,7 @@ package specimen;
 
 public class SpecimenBean {
 
+	private String specimenID;
 	private String extraInfos = "";
 	private String measurementType;
 	private String image;
@@ -39,6 +40,14 @@ public class SpecimenBean {
 	private String collectionElevation;
 	private String collectionGPSX;
 	private String collectionGPSY;
+	
+	public String getSpecimenID() {
+		return specimenID;
+	}
+
+	public void setSpecimenID(String specimenID) {
+		this.specimenID = specimenID;
+	}
 	
 	public String getExtraInfos() {
 		return extraInfos;
@@ -186,5 +195,7 @@ public class SpecimenBean {
 	public void setCollectionArea(String collectionArea) {
 		this.collectionArea = collectionArea;
 	}
+
+	
 	
 }

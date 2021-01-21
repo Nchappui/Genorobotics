@@ -1,7 +1,8 @@
 package sample;
 
 public class SampleBean {
-
+	
+	private String sampleID;
 	private String storingLocation;
 	private String sampleSequencer;
 	private String sampleStocker;
@@ -199,5 +200,13 @@ public class SampleBean {
 
 	public void setSampleAmplifier(String sampleAmplifier) {
 		this.sampleAmplifier = sampleAmplifier;
+	}
+
+	public String getSampleID() {
+		return sampleID;
+	}
+
+	public void setSampleID(String sampleID) {
+		this.sampleID = sampleID;
 	}
 }
