@@ -5,14 +5,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.concurrent.ThreadLocalRandom;
 
 
 public class PersonDao {
 	
 	public int registerPerson(PersonBean personBean) throws ClassNotFoundException {
-        Integer randomNum = ThreadLocalRandom.current().nextInt(0, 1000 + 1);
-        String rnum = randomNum.toString();
         int result = 0;
 
 
@@ -24,10 +21,9 @@ public class PersonDao {
             // Step 2:Create a statement using connection object
         		
             PreparedStatement preparedStatement = connection
-            .prepareStatement("insert into person (PersonID, Email, Fullname) values (? , ? , ?)")) {
-        	preparedStatement.setString(1, rnum);
-            preparedStatement.setString(2, personBean.getEmail());
-            preparedStatement.setString(3, personBean.getFullname());
+            .prepareStatement("insert into person (Email, Fullname) values (? , ?)")) {
+            preparedStatement.setString(1, personBean.getEmail());
+            preparedStatement.setString(2, personBean.getFullname());
 
             System.out.println(preparedStatement);
             result = preparedStatement.executeUpdate();
