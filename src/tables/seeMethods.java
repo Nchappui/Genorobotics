@@ -33,6 +33,7 @@ public class seeMethods extends HttpServlet {
 		Connection connection=null;
 		ArrayList<MethodBean> std = new ArrayList<MethodBean>();
 		
+		
 		try {
 			ConnectionToMySQL connect = new ConnectionToMySQL();
 			connection = connect.connectToDatabase();

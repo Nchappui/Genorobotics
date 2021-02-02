@@ -3,9 +3,9 @@ package specimen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.concurrent.ThreadLocalRandom;
 
 import connection.ConnectionToMySQL;
+import utils.KeyGenerator;
 
 /**
  * Generates and the query and executes it
@@ -17,8 +17,8 @@ import connection.ConnectionToMySQL;
 public class SpecimenDao {
 
 	public int registerSpecimen(SpecimenBean specimenBean) throws ClassNotFoundException {
-		Integer randomNum = ThreadLocalRandom.current().nextInt(0, 1000 + 1);
-		String rnum = randomNum.toString();
+		KeyGenerator kg = new KeyGenerator();
+		String key= kg.GenerateKey();
 		int result = 0;
 
 		try {
@@ -32,7 +32,7 @@ public class SpecimenDao {
 							+ " Collection_area, Collection_elevation, Collection_GPS)\r\n"
 							+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
 							+ " ?, ?, ?, ?, POINT(?,?))");
-			preparedStatement.setString(1, rnum);
+			preparedStatement.setString(1, key);
 			preparedStatement.setString(2, specimenBean.getExtraInfos());
 			preparedStatement.setString(3, specimenBean.getMeasurementType());
 			preparedStatement.setString(4, specimenBean.getImage());

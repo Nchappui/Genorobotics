@@ -1,9 +1,9 @@
 package sample;
 
 import java.sql.Connection;
+import utils.KeyGenerator;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.concurrent.ThreadLocalRandom;
 
 import connection.ConnectionToMySQL;
 
@@ -17,8 +17,8 @@ import connection.ConnectionToMySQL;
 public class SampleDao {
 
 	public int registerSample(SampleBean sampleBean) throws ClassNotFoundException {
-		Integer randomNum = ThreadLocalRandom.current().nextInt(0, 1000 + 1);
-		String rnum = randomNum.toString();
+		KeyGenerator kg = new KeyGenerator();
+		String key= kg.GenerateKey();
 		int result = 0;
 
 		try {
@@ -32,7 +32,7 @@ public class SampleDao {
 							+ " Read_direction, Sequence_length, Marker, Primer_description, Sequence_data, Base_calling_file)\r\n"
 							+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,\r\n"
 							+ " ?, ?, ?, ?, ?, ?, ?, ?)");
-			preparedStatement.setString(1, rnum);
+			preparedStatement.setString(1, key);
 			preparedStatement.setString(2, sampleBean.getStoringLocation());
 			preparedStatement.setString(3, sampleBean.getSampleSequencer());
 			preparedStatement.setString(4, sampleBean.getSampleStocker());
